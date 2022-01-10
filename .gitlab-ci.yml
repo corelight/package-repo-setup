@@ -19,14 +19,12 @@ centos8_test:
   script:
     - ./corelight-gpg.sh
 
-# docker image for rhel7 requires a login
 rhel7_test:
   stage: test
   image: registry.access.redhat.com/ubi7/ubi
   script:
     - ./corelight-gpg.sh
 
-# docker image for rhel8 requires a login
 rhel8_test:
   stage: test
   image: registry.access.redhat.com/ubi8/ubi
