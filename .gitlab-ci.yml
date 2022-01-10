@@ -1,0 +1,98 @@
+stages:
+  - test
+
+centos7_test:
+  stage: test
+  image: centos:7
+  script:
+    - ./corelight-gpg.sh
+
+centos8_test:
+  stage: test
+  image: centos:8
+  script:
+    - ./corelight-gpg.sh
+
+# docker image for rhel7 requires a login
+# rhel7_test:
+#   stage: test
+#   image: registry.redhat.io/rhel7
+#   script:
+#     - ./corelight-gpg.sh
+
+# docker image for rhel8 requires a login
+# rhel8_test:
+#   stage: test
+#   image: registry.redhat.io/rhel8
+#   script:
+#     - ./corelight-gpg.sh
+
+debian_buster_test:
+  stage: test
+  image: debian:10
+  script:
+    - ./corelight-gpg.sh
+
+debian_bullseye_test:
+  stage: test
+  image: debian:11
+  script:
+    - ./corelight-gpg.sh
+
+# docker image for debian:12 is not available
+# debian_bookworm_test:
+#   stage: test
+#   image: debian:12
+#   script:
+#     - ./corelight-gpg.sh
+
+# docker image for debian:13 is not available
+# debian_trixie_test:
+#   stage: test
+#   image: debian:13
+#   script:
+#     - ./corelight-gpg.sh
+
+# docker image for raspbian:buster is not available
+# raspbian_buster_test:
+#   stage: test
+#   image: raspbian:buster
+#   script:
+#     - ./corelight-gpg.sh
+
+# docker image for raspbian:bullseye is not available
+# raspbian_bullseye_test:
+#   stage: test
+#   image: raspbian:bullseye
+#   script:
+#     - ./corelight-gpg.sh
+
+ubuntu_bionic_test:
+  stage: test
+  image: ubuntu:18.04
+  script:
+    - ./corelight-gpg.sh
+
+ubuntu_focal_test:
+  stage: test
+  image: ubuntu:20.04
+  script:
+    - ./corelight-gpg.sh
+
+ubuntu_hirsute_test:
+  stage: test
+  image: ubuntu:21.04
+  script:
+    - ./corelight-gpg.sh
+
+ubuntu_impish_test:
+  stage: test
+  image: ubuntu:21.10
+  script:
+    - ./corelight-gpg.sh
+
+ubuntu_jammy_test:
+  stage: test
+  image: ubuntu:22.04
+  script:
+    - ./corelight-gpg.sh
