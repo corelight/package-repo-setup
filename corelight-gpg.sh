@@ -46,6 +46,8 @@ curl_deb_check ()
   if command -v curl > /dev/null; then
     echo "Detected curl..."
   else
+    echo -n "Running apt-get update... "
+    apt-get update &> /dev/null
     echo "Installing curl..."
     apt-get install -q -y curl
     if [ "$?" -ne "0" ]; then
