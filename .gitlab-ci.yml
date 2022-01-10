@@ -1,6 +1,12 @@
 stages:
   - test
 
+centos6_test:
+  stage: test
+  image: centos:6
+  script:
+    - ./corelight-gpg.sh
+
 centos7_test:
   stage: test
   image: centos:7
