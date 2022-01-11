@@ -100,3 +100,9 @@ ubuntu_jammy_test:
   image: ubuntu:22.04
   script:
     - ./corelight-gpg.sh
+
+amazon_linux2_test:
+  stage: test
+  image: amazonlinux:2
+  script:
+    - ./corelight-gpg.sh

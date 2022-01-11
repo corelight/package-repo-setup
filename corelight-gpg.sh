@@ -398,7 +398,7 @@ deb_main ()
 main ()
 {
     detect_os
-    if [[ "${os}" = "centos" || "${os}" = "rhel" ]]; then
+    if [[ "${os}" = "centos" || "${os}" = "rhel" || "${os}" = "amzn" ]]; then
       yum_main
     else
       deb_main
