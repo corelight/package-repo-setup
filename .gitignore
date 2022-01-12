@@ -1,0 +1,49 @@
+**/.DS_Store
+
+venv
+
+gocode/pkg
+gocode/src/pkg/
+
+**/bin
+**/node_modules/*
+**/vendor
+# Taken from https://github.com/github/gitignore/blob/master/Go.gitignore
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# See: https://github.com/github/gitignore/blob/master/Terraform.gitignore
+**/.terraform
+*.tfstate
+*.tfstate.*
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool(s)
+*.out
+.idea
+.coverage
+htmlcov/
+**/*.coverage.txt
+
+# Python ephemera
+__pycache__
+
+**/.env
+
+scripts/directory.html
+gocode/src/corelight/cobertura-coverage.xml
+gocode/src/corelight/microservices/geoIpUpdater/updateDB/hello.txt
+gocode/src/corelight/microservices/geoIpUpdater/updateDB/tmp
+gocode/src/corelight/microservices/package-lock.json
+gocode/src/corelight/microservices/prune.go
+gocode/src/corelight/microservices/roundtripper/.requirements.zip
+
+leviathon-tf
+
+.scannerwork
