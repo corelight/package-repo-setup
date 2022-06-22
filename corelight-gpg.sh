@@ -322,7 +322,11 @@ deb_main ()
   apt_config_url="https://packagecloud.io/install/repositories/corelight/stable/config_file.list?os=${os}&dist=${dist}&source=script"
 
   apt_source_path="/etc/apt/sources.list.d/corelight_stable.list"
-  gpg_keyring_path="/usr/share/keyrings/corelight_stable-archive-keyring.gpg"
+  apt_keyrings_dir="/etc/apt/keyrings"
+  if [ ! -d "$apt_keyrings_dir" ]; then
+    mkdir -p "$apt_keyrings_dir"
+  fi
+  gpg_keyring_path="$apt_keyrings_dir/corelight_stable-archive-keyring.gpg"
 
   echo -n "Installing $apt_source_path..."
 
@@ -375,7 +379,7 @@ deb_main ()
   curl -fsSL "${gpg_key_url}" | gpg --dearmor > ${gpg_keyring_path}
   # check for os/dist based on pre debian stretch
   if
-  { [ "${os,,}" = "debian" ] && [ "${dist}" -lt 9 ]; } ||
+  { [ "${os,,}" = "debian" ] && [ "${version_id}" -lt 9 ]; } ||
   { [ "${os,,}" = "ubuntu" ] && [ "${version_id}" -lt 16 ]; } ||
   { [ "${os,,}" = "linuxmint" ] && [ "${version_id}" -lt 19 ]; } ||
   { [ "${os,,}" = "raspbian" ] && [ "${version_id}" -lt 9 ]; } ||
@@ -383,6 +387,10 @@ deb_main ()
   then
     # move to trusted.gpg.d
     mv ${gpg_keyring_path} /etc/apt/trusted.gpg.d/corelight_stable.gpg
+    # deletes the keyrings directory if it is empty
+    if ! ls -1qA $apt_keyrings_dir | grep -q .;then
+      rm -r $apt_keyrings_dir
+    fi
   fi
   echo "done."
 
