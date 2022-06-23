@@ -8,31 +8,31 @@ stages:
 
 centos6_test:
   image: centos:6
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 centos7_test:
   image: centos:7
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 centos8_test:
   image: centos:8
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 rhel7_test:
   image: registry.access.redhat.com/ubi7/ubi
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 rhel8_test:
   image: registry.access.redhat.com/ubi8/ubi
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 debian_buster_test:
   image: debian:10
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 debian_bullseye_test:
   image: debian:11
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 # docker image for debian:12 is not available
 # debian_bookworm_test:
@@ -64,24 +64,24 @@ debian_bullseye_test:
 
 ubuntu_bionic_test:
   image: ubuntu:18.04
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 ubuntu_focal_test:
   image: ubuntu:20.04
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 ubuntu_hirsute_test:
   image: ubuntu:21.04
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 ubuntu_impish_test:
   image: ubuntu:21.10
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 ubuntu_jammy_test:
   image: ubuntu:22.04
-  <<: [*test-deb]
+  <<: [*test-gpg]
 
 amazon_linux2_test:
   image: amazonlinux:2
-  <<: [*test-deb]
+  <<: [*test-gpg]
