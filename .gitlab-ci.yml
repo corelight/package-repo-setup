@@ -1,47 +1,38 @@
 stages:
   - test
 
-centos6_test:
+.test-gpg-script: &test-gpg
   stage: test
-  image: centos:6
   script:
     - ./corelight-gpg.sh
+
+centos6_test:
+  image: centos:6
+  <<: [*test-gpg]
 
 centos7_test:
-  stage: test
   image: centos:7
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 centos8_test:
-  stage: test
   image: centos:8
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 rhel7_test:
-  stage: test
   image: registry.access.redhat.com/ubi7/ubi
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 rhel8_test:
-  stage: test
   image: registry.access.redhat.com/ubi8/ubi
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 debian_buster_test:
-  stage: test
   image: debian:10
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 debian_bullseye_test:
-  stage: test
   image: debian:11
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 # docker image for debian:12 is not available
 # debian_bookworm_test:
@@ -72,37 +63,25 @@ debian_bullseye_test:
 #     - ./corelight-gpg.sh
 
 ubuntu_bionic_test:
-  stage: test
   image: ubuntu:18.04
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 ubuntu_focal_test:
-  stage: test
   image: ubuntu:20.04
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 ubuntu_hirsute_test:
-  stage: test
   image: ubuntu:21.04
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 ubuntu_impish_test:
-  stage: test
   image: ubuntu:21.10
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 ubuntu_jammy_test:
-  stage: test
   image: ubuntu:22.04
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
 
 amazon_linux2_test:
-  stage: test
   image: amazonlinux:2
-  script:
-    - ./corelight-gpg.sh
+  <<: [*test-gpg]
